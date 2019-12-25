@@ -10,8 +10,15 @@ namespace ConsoleApp_Fail
             Process[] processesByName = Process.GetProcessesByName("ffxiv_dx11");
             foreach (Process process in processesByName)
             {
-                IntPtr intPtr = process.Handle; // Exception here.
-                Console.WriteLine(intPtr.ToInt64());
+                try
+                {
+                    IntPtr intPtr = process.Handle; // Win32Exception (0x80004005) here.
+                    Console.WriteLine(intPtr.ToInt64());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
             }
 
             Console.ReadLine();
