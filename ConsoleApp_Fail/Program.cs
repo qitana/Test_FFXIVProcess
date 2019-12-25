@@ -12,8 +12,8 @@ namespace ConsoleApp_Fail
             {
                 try
                 {
-                    IntPtr intPtr = process.Handle; // Win32Exception (0x80004005) here.
-                    Console.WriteLine(intPtr.ToInt64());
+                    IntPtr handle = process.Handle; // Win32Exception (0x80004005) here.
+                    Console.WriteLine(handle.ToInt64());
                 }
                 catch (Exception ex)
                 {
